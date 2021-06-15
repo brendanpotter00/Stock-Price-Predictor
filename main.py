@@ -13,18 +13,27 @@ from tensorflow.keras.layers import Dense, Dropout, LSTM
 #python ./main.py
 
 
+#default variables
+default_ticker = 'SPY'
+default_days = 60
+
 #getting user ticker input
 print('SPY, QQQ, IWM, DIA, AAPL, FB are all examples of tickers')
+print('***enter NONE if you want to use the default ticker***')
 company = input("Enter a company ticker: ")
 company = company.upper()
 print ('you entered', company)
-
+if company == 'NONE' :
+    company = default_ticker
 
 
 #getting amount of days the users wants to look into the past
 print('RECOMMENDED NUMBER OF DAYS: 60')
+print('***enter 0 if you want to use the default number of days***')
 prediction_days = int(input("Enter how many days you want the neural network to look into the past: "))
 print ('you entered', prediction_days)
+if prediction_days == 0 :
+    prediction_days = default_days
 
 
 
